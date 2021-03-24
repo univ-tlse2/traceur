@@ -1,3 +1,3 @@
-module github.com/jaco60/traceur
+module github.com/univ-tlse2/traceur
 
 go 1.16
