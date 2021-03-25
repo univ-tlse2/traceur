@@ -7,18 +7,18 @@ import (
 
 var (
 	// direction en radiant
-	direction_rad float64 = 0
-	x             float64 = 0
-	y             float64 = 0
+	Direction_rad float64 = 0
+	X             float64 = 0
+	Y             float64 = 0
 )
 
 // getDirection récupère la direction dans l'unité demandé "deg" ou "rad"
-func getDirection(unite string) float64 {
+func GetDirection(unite string) float64 {
 	var res float64
 	if unite == "rad" {
-		res = direction_rad
+		res = Direction_rad
 	} else {
-		res = direction_rad * 180 / math.Pi
+		res = Direction_rad * 180 / math.Pi
 	}
 	return res
 }
@@ -41,16 +41,16 @@ func angle_to_center(x float64, y float64) float64 {
 	var angle_to_center_rad float64
 	// tan() = x/y
 	if y == 0 {
-		if x > 0 {
+		if X > 0 {
 			angle_to_center_rad = -math.Pi / 2
 		} else {
 			angle_to_center_rad = math.Pi / 2
 		}
 	} else {
 		if y > 0 {
-			angle_to_center_rad = -direction_rad + math.Pi + math.Atan(x/y)
+			angle_to_center_rad = -Direction_rad + math.Pi + math.Atan(x/y)
 		} else {
-			angle_to_center_rad = -direction_rad + math.Atan(x/y)
+			angle_to_center_rad = -Direction_rad + math.Atan(x/y)
 		}
 	}
 	return angle_to_center_rad
@@ -62,8 +62,8 @@ func Init() { fmt.Println("draw mode") }
 // Forward avance le stylet de step pas dans la direction courante
 func Forward(step float64) {
 	fmt.Printf("forward %f\n", step)
-	x += step * math.Sin(getDirection("rad"))
-	y += step * math.Cos(getDirection("rad"))
+	X += step * math.Sin(GetDirection("rad"))
+	Y += step * math.Cos(GetDirection("rad"))
 }
 
 // Step avance le stylet d'un pas dans la direction courante
@@ -72,13 +72,13 @@ func Step() { fmt.Println("forward 1") }
 // Right tourne le stylet de 90° vers la droite
 func Right() {
 	fmt.Println("right")
-	direction_rad += math.Pi / 2
+	Direction_rad += math.Pi / 2
 }
 
 // Left tourne le stylet de 90° vers la gauche
 func Left() {
 	fmt.Println("left")
-	direction_rad -= math.Pi / 2
+	Direction_rad -= math.Pi / 2
 }
 
 // Say affiche une bulle contenant le message mess
@@ -96,17 +96,17 @@ func Color(col string) { fmt.Printf("color %s\n", col) }
 // Pivote tourne le stylet de angle degrés vers la droite
 func Pivote(angle int) {
 	fmt.Printf("right %d\n", angle)
-	direction_rad += toRad(float64(angle))
+	Direction_rad += toRad(float64(angle))
 }
 
 // North aller au nord
 func North() {
-	Pivote(-int(toDeg(direction_rad)))
+	Pivote(-int(toDeg(Direction_rad)))
 }
 
 // South aller au sud
 func South() {
-	Pivote(180 - int(toDeg(direction_rad)))
+	Pivote(180 - int(toDeg(Direction_rad)))
 }
 
 // East aller à l'est
@@ -123,44 +123,29 @@ func West() {
 
 // Center retourne au centre du dessin
 func Center() {
-	if int(x) != 0 || int(y) != 0 {
+	if int(X) != 0 || int(Y) != 0 {
 		var (
 			angle_to_center_rad float64
 			distance_to_center  float64
 		)
 		// a partir des coordonnées trouver la distance vers le centre
-		distance_to_center = math.Sqrt(x*x + y*y)
+		distance_to_center = math.Sqrt(X*X + Y*Y)
 
 		// tourner se réoriente vers le nord
 		North()
 		// a partir des coordonnées, trouver l'angle vers le centre
-		angle_to_center_rad = angle_to_center(x, y)
+		angle_to_center_rad = angle_to_center(X, Y)
 		Pivote(int(toDeg(angle_to_center_rad)))
 		Forward(distance_to_center)
 	}
 	North()
 }
 
-type Coords struct {
-	x float64
-	y float64
-	direction int
-}
-
-// GetCoords renvoi les coordonnées du traceur
-func GetCoords() Coords {
-	var coords Coords
-	coords.x = x
-	coords.y = y
-	coords.direction = toDeg(direction_rad)
-	return coords
-}
-
 // PrintCoords affiche les coordonnées du traceur
 func PrintCoords() {
 	fmt.Printf("  ###### Coordonnées ########\n")
-	fmt.Printf("  ## Direction : %d°\n", toDeg(direction_rad))
-	fmt.Printf("  ## X : %f\n", x)
-	fmt.Printf("  ## Y : %f\n", y)
+	fmt.Printf("  ## Direction : %d°\n", toDeg(Direction_rad))
+	fmt.Printf("  ## X : %f\n", X)
+	fmt.Printf("  ## Y : %f\n", Y)
 	fmt.Printf("  ###########################\n")
 }
