@@ -74,3 +74,22 @@ func Pivote(angle int) {
 	fmt.Printf("right %d\n", angle)
 	direction_rad += toRad(float64(angle))
 }
+
+// GetCoords renvoi les coordonnées du traceur
+func GetCoords() map[string]float64 {
+	coords := map[string]float64{
+		"x":         x,
+		"y":         y,
+		"direction": toDeg(direction_rad),
+	}
+	return coords
+}
+
+// PrintCoords affiche les coordonnées du traceur
+func PrintCoords() {
+	fmt.Println("----")
+	fmt.Printf("Direction : %f°\n", toDeg(direction_rad))
+	fmt.Printf("X : %f\n", x)
+	fmt.Printf("Y : %f\n", y)
+	fmt.Println("----")
+}
