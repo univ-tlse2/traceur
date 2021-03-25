@@ -140,20 +140,25 @@ func Center() {
 	North()
 }
 
+type Coords struct {
+	x float64
+	y float64
+	direction int
+}
+
 // GetCoords renvoi les coordonnées du traceur
-func GetCoords() map[string]float64 {
-	coords := map[string]float64{
-		"x":         x,
-		"y":         y,
-		"direction": toDeg(direction_rad),
-	}
+func GetCoords() Coords {
+	var coords Coords
+	coords.x = x
+	coords.y = y
+	coords.direction = toDeg(direction_rad)
 	return coords
 }
 
 // PrintCoords affiche les coordonnées du traceur
 func PrintCoords() {
 	fmt.Printf("  ###### Coordonnées ########\n")
-	fmt.Printf("  ## Direction : %f°\n", toDeg(direction_rad))
+	fmt.Printf("  ## Direction : %d°\n", toDeg(direction_rad))
 	fmt.Printf("  ## X : %f\n", x)
 	fmt.Printf("  ## Y : %f\n", y)
 	fmt.Printf("  ###########################\n")
