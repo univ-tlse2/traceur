@@ -57,7 +57,12 @@ func angle_to_center(x float64, y float64) float64 {
 }
 
 // Init initialise l'environnement du robot
-func Init() { fmt.Println("draw mode") }
+func Init() {
+	fmt.Println("draw mode")
+	X = 0
+	Y = 0
+	Direction_rad = 0
+}
 
 // Forward avance le stylet de step pas dans la direction courante
 func Forward(step float64) {
