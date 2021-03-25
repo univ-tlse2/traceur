@@ -75,6 +75,28 @@ func Pivote(angle int) {
 	direction_rad += toRad(float64(angle))
 }
 
+// North aller au nord
+func North() {
+	Pivote(-int(toDeg(direction_rad)))
+}
+
+// South aller au sud
+func South() {
+	Pivote(180 - int(toDeg(direction_rad)))
+}
+
+// East aller à l'est
+func East() {
+	North()
+	Right()
+}
+
+// West aller à l'ouest
+func West() {
+	North()
+	Left()
+}
+
 // GetCoords renvoi les coordonnées du traceur
 func GetCoords() map[string]float64 {
 	coords := map[string]float64{
