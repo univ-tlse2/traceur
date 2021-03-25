@@ -122,17 +122,21 @@ func West() {
 
 // Center retourne au centre du dessin
 func Center() {
-	var angle_to_center_rad float64
-	var distance_to_center float64
-	// a partir des coordonnées trouver la distance vers le centre
-	distance_to_center = math.Sqrt(x*x + y*y)
+	if int(x) != 0 || int(y) != 0 {
+		var (
+			angle_to_center_rad float64
+			distance_to_center  float64
+		)
+		// a partir des coordonnées trouver la distance vers le centre
+		distance_to_center = math.Sqrt(x*x + y*y)
 
-	// tourner se réoriente vers le nord
-	North()
-	// a partir des coordonnées, trouver l'angle vers le centre
-	angle_to_center_rad = angle_to_center(x, y)
-	Pivote(int(toDeg(angle_to_center_rad)))
-	Forward(distance_to_center)
+		// tourner se réoriente vers le nord
+		North()
+		// a partir des coordonnées, trouver l'angle vers le centre
+		angle_to_center_rad = angle_to_center(x, y)
+		Pivote(int(toDeg(angle_to_center_rad)))
+		Forward(distance_to_center)
+	}
 	North()
 }
 
