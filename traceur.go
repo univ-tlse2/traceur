@@ -32,6 +32,29 @@ func toDeg(rad float64) float64 {
 func toRad(deg float64) float64 {
 	return deg * math.Pi / 180
 }
+
+// angle_to_center trouve l'angle permettant de s'orienter vers le centre
+// précondition : être orienté vers le nord
+// TODO : integrer la précondition dans la fonction
+func angle_to_center(x float64, y float64) float64 {
+	var angle_to_center_rad float64
+	// tan() = x/y
+	if y == 0 {
+		if x > 0 {
+			angle_to_center_rad = -math.Pi / 2
+		} else {
+			angle_to_center_rad = math.Pi / 2
+		}
+	} else {
+		if y > 0 {
+			angle_to_center_rad = -direction_rad + math.Pi + math.Atan(x/y)
+		} else {
+			angle_to_center_rad = -direction_rad + math.Atan(x/y)
+		}
+	}
+	return angle_to_center_rad
+}
+
 // Init initialise l'environnement du robot
 func Init() { fmt.Println("draw mode") }
 
@@ -95,6 +118,22 @@ func East() {
 func West() {
 	North()
 	Left()
+}
+
+// Center retourne au centre du dessin
+func Center() {
+	var angle_to_center_rad float64
+	var distance_to_center float64
+	// a partir des coordonnées trouver la distance vers le centre
+	distance_to_center = math.Sqrt(x*x + y*y)
+
+	// tourner se réoriente vers le nord
+	North()
+	// a partir des coordonnées, trouver l'angle vers le centre
+	angle_to_center_rad = angle_to_center(x, y)
+	Pivote(int(toDeg(angle_to_center_rad)))
+	Forward(distance_to_center)
+	North()
 }
 
 // GetCoords renvoi les coordonnées du traceur
