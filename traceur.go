@@ -24,8 +24,9 @@ func getDirection(unite string) float64 {
 }
 
 // toDeg converti les radian en degré
-func toDeg(rad float64) float64 {
-	return rad * 180 / math.Pi
+func toDeg(rad float64) int {
+	deg := rad * 180 / math.Pi
+	return int(deg) % 360
 }
 
 // toDeg converti les degré en radiant
