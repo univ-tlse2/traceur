@@ -148,9 +148,9 @@ func GetCoords() map[string]float64 {
 
 // PrintCoords affiche les coordonnées du traceur
 func PrintCoords() {
-	fmt.Println("----")
-	fmt.Printf("Direction : %f°\n", toDeg(direction_rad))
-	fmt.Printf("X : %f\n", x)
-	fmt.Printf("Y : %f\n", y)
-	fmt.Println("----")
+	fmt.Printf("  ###### Coordonnées ########\n")
+	fmt.Printf("  ## Direction : %f°\n", toDeg(direction_rad))
+	fmt.Printf("  ## X : %f\n", x)
+	fmt.Printf("  ## Y : %f\n", y)
+	fmt.Printf("  ###########################\n")
 }
