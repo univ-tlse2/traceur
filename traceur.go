@@ -1,7 +1,16 @@
 package traceur
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
+var (
+	// direction en radiant
+	direction_rad float64 = 0
+	x             float64 = 0
+	y             float64 = 0
+)
 // Init initialise l'environnement du robot
 func Init() { fmt.Println("draw mode") }
 
