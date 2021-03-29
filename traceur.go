@@ -2,7 +2,8 @@ package traceur
 
 import "fmt"
 
-var AngleToReturnToNorth int // Angle pour revenir au Nord (en degrés)
+// Angle pour revenir au Nord (en degrés)
+var AngleToReturnToNorth int
 
 // Init initialise l'environnement du robot
 func Init() {
