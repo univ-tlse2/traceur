@@ -9,7 +9,7 @@ package traceur // import "github.com/univ-tlse2/traceur"
 
 ### VARIABLES
 
-var AngleToReturnToNorth int
+`var AngleToReturnToNorth int`
     Angle pour revenir au Nord (en degrés)
 
 
