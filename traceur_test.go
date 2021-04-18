@@ -11,7 +11,7 @@ func TestInit(t *testing.T) {
 	}
 }
 
-func TestNorth(t *testing.T) {
+func TestNorthWithCardinalPoints(t *testing.T) {
 	South()
 	East()
 	West()
@@ -20,12 +20,14 @@ func TestNorth(t *testing.T) {
 	if got != 0 {
 		t.Errorf("Got : %d, Expected: %d", got, 0)
 	}
+}
 
+func TestNorthWithPivoteAndRight(t *testing.T) {
 	Pivote(30)
 	Right()
 	Pivote(-10)
 	North()
-	got = angleToReturnToNorth
+	got := angleToReturnToNorth
 	if got != 0 {
 		t.Errorf("Got : %d, Expected: %d", got, 0)
 	}
