@@ -5,7 +5,8 @@ sur GoSpace.
 
 ## Exemple d'utilisation :
 
-Un programme à compléter : https://goplay.space/#SIxGSHoHBIW
+Un programme à compléter : 
+https://goplay.space/#SIxGSHoHBIW
 
 ## Documentation :
 package traceur // import "github.com/univ-tlse2/traceur"
