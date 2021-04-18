@@ -5,6 +5,7 @@ import "testing"
 
 func TestInit(t *testing.T) {
 	// Vérifie que le traceur est dirigé vers le nord
+	Init()
 	got := angleToReturnToNorth
 	if got != 0 {
 		t.Errorf("Got : %d, Expected: %d", got, 0)
