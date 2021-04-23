@@ -1,21 +1,21 @@
 package figures
 
-import "github.com/univ-tlse2/traceur"
+import . "github.com/univ-tlse2/traceur"
 
 // DrawRect dessine un rectangle de hauteur x largeur pas et de couleur coul.
 // Son coin inférieur gauche est à la position initiale du stylet.
 // Après le tracé, le stylet est orienté vers le nord.
 func DrawRect(hauteur, largeur float64, coul string) {
-	traceur.North()
-	traceur.Color(coul)
+	North()
+	Color(coul)
 	for cpteur := 1; cpteur <= 2; cpteur++ {
 		// Trace un demi-rectangle
-		traceur.Forward(hauteur)
-		traceur.Right()
-		traceur.Forward(largeur)
-		traceur.Right()
+		Forward(hauteur)
+		Right()
+		Forward(largeur)
+		Right()
 	}
-	traceur.North()
+	North()
 }
 
 // DrawSquare dessine un carré de nbPas de côté et de couleur coul
@@ -29,11 +29,11 @@ func DrawSquare(nbPas float64, coul string) {
 // Son coin inférieur gauche est à la position initiale du stylet.
 // Après le tracé, le stylet est orienté vers le nord.
 func DrawTriangle(nbPas float64, coul string) {
-	traceur.West()
-	traceur.Color(coul)
+	West()
+	Color(coul)
 	for nbCotes := 1; nbCotes <= 3; nbCotes++ {
-		traceur.Pivote(180 - 60)
-		traceur.Forward(nbPas)
+		Pivote(180 - 60)
+		Forward(nbPas)
 	}
-	traceur.North()
+	North()
 }
