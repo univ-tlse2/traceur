@@ -5,17 +5,14 @@ sur GoSpace.
 
 ## Exemple d'utilisation :
 
-Un programme à compléter : 
-https://goplay.space/#SIxGSHoHBIW
+Un programme à compléter :
+https://goplay.space/#7e_eWbs31sd
 
 ## Documentation :
 package traceur // import "github.com/univ-tlse2/traceur"
 
 
 ### FUNCTIONS
-
-`func Init()`
-    Init initialise l'environnement du robot
 
 `func Down(col string)`
     Down change la couleur du stylet et le met en contact avec la feuille

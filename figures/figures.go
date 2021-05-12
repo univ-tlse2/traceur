@@ -7,7 +7,6 @@ import . "github.com/univ-tlse2/traceur"
 // DrawRect dessine un rectangle de hauteur x largeur pas avec un contour de la couleur indiquée.
 // Son coin inférieur gauche est à la position initiale du stylet.
 func DrawRect(hauteur, largeur float64, couleur string) {
-	//North()
 	Color(couleur)
 	for cpteur := 1; cpteur <= 2; cpteur++ {
 		// Trace un demi-rectangle
