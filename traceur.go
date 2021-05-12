@@ -7,8 +7,8 @@ import "fmt"
 // Angle pour revenir au Nord (en degrés)
 var angleToReturnToNorth int
 
-// Init initialise l'environnement du robot
-func Init() {
+// init initialise l'environnement du robot (appelée automatiquement au chargement du package)
+func init() {
 	fmt.Println("draw mode")
 	angleToReturnToNorth = 0
 }
