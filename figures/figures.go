@@ -1,3 +1,5 @@
+// Package figures ajoute des fonctions de tracés de rectangles, carrés et triangles
+// au package traceur
 package figures
 
 import . "github.com/univ-tlse2/traceur"

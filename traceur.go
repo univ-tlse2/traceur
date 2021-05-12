@@ -1,3 +1,5 @@
+// Package traceur fournit un ensemble de fonctions pour effectuer simplement
+// des tracés géométriques sur goplay.space (https://goplay.space/)
 package traceur
 
 import "fmt"
