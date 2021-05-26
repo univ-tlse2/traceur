@@ -5,12 +5,16 @@ package traceur
 import "fmt"
 
 // Angle pour revenir au Nord (en degrés)
-var angleToReturnToNorth int
+var (
+	angleToReturnToNorth int
+	couleur              string
+)
 
 // init initialise l'environnement du robot (appelée automatiquement au chargement du package)
 func init() {
 	fmt.Println("draw mode")
 	angleToReturnToNorth = 0
+	couleur = "black"
 }
 
 // Forward avance le stylet de step pas dans la direction courante
@@ -40,10 +44,13 @@ func Say(mess string) { fmt.Printf("say %s\n", mess) }
 func Up() { fmt.Println("color off") }
 
 // Down change la couleur du stylet et le met en contact avec la feuille
-func Down(col string) { fmt.Printf("color %s\n", col) }
+func Down() { fmt.Printf("color %s\n", couleur) }
 
 // Color est un synonyme de Down
-func Color(col string) { fmt.Printf("color %s\n", col) }
+func Color(col string) {
+	fmt.Printf("color %s\n", col)
+	couleur = col
+}
 
 // Pivote tourne le stylet de angle degrés vers la droite
 func Pivote(angle int) {
