@@ -16,6 +16,7 @@ func DrawRect(hauteur, largeur float64, couleur string) {
 		Forward(largeur)
 		Right()
 	}
+	Up()
 }
 
 // DrawSquare dessine un carré de nbPas de côté avec un contour de la couleur indiquée.
@@ -34,4 +35,5 @@ func DrawTriangle(nbPas float64, couleur string) {
 		Pivote(180 - 60)
 		Forward(nbPas)
 	}
+	Up()
 }
