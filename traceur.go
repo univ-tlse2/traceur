@@ -10,6 +10,11 @@ var (
 	couleur              string
 )
 
+// GetColor renvoie la couleur de tracé courante
+func GetColor() string {
+	return couleur
+}
+
 // init initialise l'environnement du robot (appelée automatiquement au chargement du package)
 func init() {
 	fmt.Println("draw mode")

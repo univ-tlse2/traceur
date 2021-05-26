@@ -7,6 +7,7 @@ import . "github.com/univ-tlse2/traceur"
 // DrawRect dessine un rectangle de hauteur x largeur pas avec un contour de la couleur indiquée.
 // Son coin inférieur gauche est à la position initiale du stylet.
 func DrawRect(hauteur, largeur float64, couleur string) {
+	saveColor := GetColor()
 	Color(couleur)
 	Down()
 	for cpteur := 1; cpteur <= 2; cpteur++ {
@@ -17,6 +18,7 @@ func DrawRect(hauteur, largeur float64, couleur string) {
 		Right()
 	}
 	Up()
+	Color(saveColor)
 }
 
 // DrawSquare dessine un carré de nbPas de côté avec un contour de la couleur indiquée.
@@ -28,6 +30,7 @@ func DrawSquare(nbPas float64, couleur string) {
 // DrawTriangle dessine un triangle équilatéral avec des côtés de nbPas et un contour de la couleur indiquée.
 // Son coin inférieur gauche est à la position initiale du stylet.
 func DrawTriangle(nbPas float64, couleur string) {
+	saveColor := GetColor()
 	Left()
 	Color(couleur)
 	Down()
@@ -36,4 +39,5 @@ func DrawTriangle(nbPas float64, couleur string) {
 		Forward(nbPas)
 	}
 	Up()
+	Color(saveColor)
 }
