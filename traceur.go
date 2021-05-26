@@ -43,10 +43,10 @@ func Say(mess string) { fmt.Printf("say %s\n", mess) }
 // Up lève le stylet
 func Up() { fmt.Println("color off") }
 
-// Down change la couleur du stylet et le met en contact avec la feuille
+// Down met le stylet en contact avec la feuille
 func Down() { fmt.Printf("color %s\n", couleur) }
 
-// Color est un synonyme de Down
+// Color modifie la couleur du stylet (noir par défaut)
 func Color(col string) {
 	fmt.Printf("color %s\n", col)
 	couleur = col
