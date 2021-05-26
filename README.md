@@ -14,8 +14,8 @@ package traceur // import "github.com/univ-tlse2/traceur"
 
 ### FUNCTIONS
 
-`func Down(col string)`
-    Down change la couleur du stylet et le met en contact avec la feuille
+`func Down()`
+    Down met le stylet en contact avec la feuille
 
 `func Up()`
     Up lève le stylet
@@ -36,7 +36,7 @@ package traceur // import "github.com/univ-tlse2/traceur"
     Pivote tourne le stylet de _angle_ degrés vers la droite
 
 `func Color(col string)`
-    Color est un synonyme de Down
+    Color modifie la couleur du tracé (noir par défaut)
 
 `func Say(mess string)`
     Say affiche une bulle contenant le message _mess_
