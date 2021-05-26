@@ -8,6 +8,7 @@ import . "github.com/univ-tlse2/traceur"
 // Son coin inférieur gauche est à la position initiale du stylet.
 func DrawRect(hauteur, largeur float64, couleur string) {
 	Color(couleur)
+	Down()
 	for cpteur := 1; cpteur <= 2; cpteur++ {
 		// Trace un demi-rectangle
 		Forward(hauteur)
@@ -28,6 +29,7 @@ func DrawSquare(nbPas float64, couleur string) {
 func DrawTriangle(nbPas float64, couleur string) {
 	Left()
 	Color(couleur)
+	Down()
 	for nbCotes := 1; nbCotes <= 3; nbCotes++ {
 		Pivote(180 - 60)
 		Forward(nbPas)
