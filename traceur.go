@@ -4,6 +4,10 @@ package traceur
 
 import "fmt"
 
+type number interface {
+	int | float64 | float32
+}
+
 // Angle pour revenir au Nord (en degrés)
 var (
 	angleToReturnToNorth int
@@ -23,12 +27,14 @@ func init() {
 }
 
 // Forward avance le stylet de step pas dans la direction courante
-func Forward(step float64) {
-	fmt.Printf("forward %f\n", step)
+func Forward[T number](step T) {
+	fmt.Printf("forward %v\n", step)
 }
 
 // Step avance le stylet d'un pas dans la direction courante
-func Step() { fmt.Println("forward 1") }
+func Step() {
+	fmt.Println("forward 1")
+}
 
 // Right tourne le stylet de 90° vers la droite
 func Right() {
